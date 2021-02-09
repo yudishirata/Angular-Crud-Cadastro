@@ -1,28 +1,36 @@
+<div class="list row">
+  <button (click)="voltar()">Voltar</button>
+</div>
+
 <div>
   <h1 id="titulo">Edição de cliente</h1>
-  <p id="subtitulo">{{currentCadastro?.Nome}}</p>
   <br>
 </div>
 
 <form>
   <fieldset class="grupo">
     <div class="campo">
-      <label for="nome"><strong>Nome Completo</strong></label>
+      <label for="nome">ID </label>
+      <label >{{currentCadastro?.Id}}</label>
+    </div>
+
+    <div class="campo">
+      <label for="nome">Nome Completo </label>
       <input type="text" name="nome" id="nome" size="50" [(ngModel)]="currentCadastro.Nome" required>
     </div>
 
     <div class="campo">
-      <label for="dtnascimento"><strong>Data de Nascimento:</strong></label>
+      <label for="dtnascimento">Data de Nascimento </label>
       <input type="text" name="dtnascimento" id="dtnascimento" [(ngModel)]="currentCadastro.DtNascimento" required>
     </div>
 
     <div class="campo">
-      <label for="cpf"><strong>Cpf:</strong></label>
+      <label for="cpf">Cpf </label>
       <input type="text" name="CPF" id="CPF" required [(ngModel)]="currentCadastro.Cpf">
     </div>
 
     <div class="campo" *ngFor="let telefone of currentCadastro.Telefone; let i = index">
-      <label for="telefone"><strong>Telefone</strong></label>
+      <label for="telefone">Telefone </label>
       <input type="text" name="{{i}}-telefone" id="{{i}}-telefone" required [(ngModel)]="telefone.Telefone1">
       <button (click)="deletarTelefone(telefone.Id)" class="btn btn-danger">Apagar Telefone</button>
     </div>

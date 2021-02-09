@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CadastroService } from 'src/app/services/cadastro.service';
 import { CadastroModel } from '../../Models/CadastroModel';
 import { TelefoneModel } from '../../Models/TelefoneModel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-create',
@@ -24,7 +25,7 @@ export class CadastroCreateComponent implements OnInit {
    
   ];
 
-  constructor(private cadastroService: CadastroService) { }
+  constructor(private cadastroService: CadastroService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -71,5 +72,8 @@ export class CadastroCreateComponent implements OnInit {
       "telefone": ""
     }];
     this.newCadastro();
+  }
+  voltar(): void {
+    this.router.navigate(['/cadastro']);
   }
 }

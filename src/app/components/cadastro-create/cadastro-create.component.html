@@ -1,7 +1,11 @@
+<div class="list row">
+  <button (click)="voltar()">Voltar</button>
+</div>
+
 <div>
   <form>
     <br />
-    <h1 id="titulo">Cadastro de cliente</h1>
+    <h3 id="titulo">Cadastro de cliente</h3>
     <p id="subtitulo">Complete as informações adequadamente</p>
     <br>
   </form>
@@ -11,22 +15,22 @@
   <form>
     <fieldset class="grupo">
       <div class="campo">
-        <label for="nome"><strong>Nome Completo</strong></label>
+        <label for="nome">Nome Completo</label>
         <input type="text" name="nome" id="nome" size="50" [(ngModel)]="nome" required>
       </div>
 
       <div class="campo">
-        <label for="dtnascimento"><strong>Data de Nascimento:</strong></label>
+        <label for="dtnascimento">Data de Nascimento:</label>
         <input type="text" name="dtnascimento" id="dtnascimento" size="20" [(ngModel)]="dtnascimento" required>
       </div>
 
       <div class="campo">
-        <label for="cpf"><strong>Cpf:</strong></label>
+        <label for="cpf">Cpf:</label>
         <input type="text" name="CPF" id="CPF" required [(ngModel)]="cpf">
       </div>
 
       <div class="campo" *ngFor="let telefone of telefones; let i = index">
-        <label for="telefone"><strong>Telefone</strong></label>
+        <label for="telefone">Telefone</label>
         <input type="text" name="{{i}}-telefone" id="{{i}}-telefone" required [(ngModel)]="telefone.telefone">
       </div>
       <div class="campo">

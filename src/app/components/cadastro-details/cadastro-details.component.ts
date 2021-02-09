@@ -77,7 +77,10 @@ export class CadastroDetailsComponent implements OnInit {
           error => {
             console.log(error);
           })
-    }
+  }
+  voltar(): void {
+    this.router.navigate(['/cadastro']);
+  }
 
     
 

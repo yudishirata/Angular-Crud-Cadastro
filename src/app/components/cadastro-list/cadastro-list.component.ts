@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CadastroService } from 'src/app/services/cadastro.service';
 import { CadastroModel } from '../../Models/CadastroModel';
 import { TelefoneModel } from '../../Models/TelefoneModel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-list',
@@ -14,7 +15,7 @@ export class CadastroListComponent implements OnInit {
   currentIndex = -1;
   nome = '';
 
-  constructor(private cadastroService: CadastroService) { }
+  constructor(private cadastroService: CadastroService, private router: Router) { }
 
   ngOnInit(): void {
     this.readCadastro();
@@ -40,4 +41,11 @@ export class CadastroListComponent implements OnInit {
     this.currentCadastro = cadastro;
     this.currentIndex = index;
   }
+  add(): void {
+    this.router.navigate(['/create']);
+  }
+  editar(): void {
+    this.router.navigate(['/cadastro/' + this.currentCadastro.Id]);
+  }
+
 }

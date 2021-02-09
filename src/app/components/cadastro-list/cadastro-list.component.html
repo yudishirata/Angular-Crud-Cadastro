@@ -1,44 +1,52 @@
 <div class="list row">
-  
-  <div class="col-md-6">
-      <h4 id="titulo">Lista de Cadastro</h4>
-    <br />
-    <ul class="list-group">
-      <li class="list-group-item"
-          *ngFor="let cadastro of cadastro; let i = index"
-          [class.active]="i == currentIndex"
-          (click)="setCurrentCadastro(cadastro, i)">
-        {{cadastro?.Nome}}
-      </li>
-    </ul>
-  </div>
+  <button (click)="add()">Adicionar Cadastro</button>
+</div>
   <br />
-  <div class="col-md-6">
-    <div *ngIf="currentCadastro">
-      <h4>Cadastro</h4>
-      <div>
-        <label><strong>Nome:</strong>{{currentCadastro.Nome}}</label>
-      </div>
-      <div>
-        <label><strong>Cpf:</strong>{{currentCadastro.Cpf}}</label>
-      </div>
-      <div>
-        <label><strong>Data de Nascimento:</strong>{{currentCadastro.DtNascimento}}</label>
-      </div>
-      <div *ngFor="let telefone of currentCadastro.Telefone">
-        <label><strong>Telefone(s):</strong>{{telefone.Telefone1}}</label>
-
-      </div>
-  
+<div class="list row">
+  <form>
+    <div class="col-md-6">
+      <h3 id="titulo">Lista de Cadastro</h3>
       <br />
-      <a class="badge badge-warning" routerLink="/cadastro/{{currentCadastro.Id}}" *ngIf="currentCadastro.Id>0">
-        Editar Cadastro
-      </a>
+      <ul class="list-group">
+        <li class="list-group-item"
+            style="cursor: pointer; margin-bottom: 10px"
+            *ngFor="let cadastro of cadastro; let i = index"
+            [class.active]="i == currentIndex"
+            (click)="setCurrentCadastro(cadastro, i)">
+          {{cadastro?.Nome}}
+        </li>
+      </ul>
     </div>
+    <br />
+    <div class="col-md-6">
+      <div *ngIf="currentCadastro.Id > 0">
+        <hr />
+        <br />
+        <h4 style="margin-bottom: 10px">Cadastro</h4>
+        <div class="campo">
+          <label><strong>Nome:</strong>{{currentCadastro.Nome}}</label>
+        </div>
+        <div class="campo">
+          <label><strong>Cpf:</strong>{{currentCadastro.Cpf}}</label>
+        </div>
+        <div class="campo">
+          <label><strong>Data de Nascimento:</strong>{{currentCadastro.DtNascimento}}</label>
+        </div>
+        <div *ngFor="let telefone of currentCadastro.Telefone" class="campo">
+          <label><strong>Telefone(s):</strong>{{telefone.Telefone1}}</label>
 
-    <div *ngIf="!currentCadastro">
-      <br />
-      <p>Click no Cadastro</p>
+        </div>
+        <hr />
+        <br />
+        <div class="list row">
+          <button (click)="editar()">Editar Cadastro</button>
+        </div>
+      </div>
+
+      <div *ngIf="!currentCadastro">
+        <br />
+        <p>Click no Cadastro</p>
+      </div>
     </div>
-  </div>
+  </form>
 </div>
