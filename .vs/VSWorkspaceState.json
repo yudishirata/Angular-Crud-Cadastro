@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\cadastro-create",
+    "\\src\\app\\components\\cadastro-details",
+    "\\src\\app\\components\\cadastro-list",
+    "\\src\\app\\Models",
+    "\\src\\app\\services"
+  ],
+  "SelectedNode": "\\src\\app\\services\\cadastro.service.ts",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,50 @@
+<div>
+  <h1 id="titulo">Edição de cliente</h1>
+  <p id="subtitulo">{{currentCadastro?.Nome}}</p>
+  <br>
+</div>
+
+<form>
+  <fieldset class="grupo">
+    <div class="campo">
+      <label for="nome"><strong>Nome Completo</strong></label>
+      <input type="text" name="nome" id="nome" size="50" [(ngModel)]="currentCadastro.Nome" required>
+    </div>
+
+    <div class="campo">
+      <label for="dtnascimento"><strong>Data de Nascimento:</strong></label>
+      <input type="text" name="dtnascimento" id="dtnascimento" [(ngModel)]="currentCadastro.DtNascimento" required>
+    </div>
+
+    <div class="campo">
+      <label for="cpf"><strong>Cpf:</strong></label>
+      <input type="text" name="CPF" id="CPF" required [(ngModel)]="currentCadastro.Cpf">
+    </div>
+
+    <div class="campo" *ngFor="let telefone of currentCadastro.Telefone; let i = index">
+      <label for="telefone"><strong>Telefone</strong></label>
+      <input type="text" name="{{i}}-telefone" id="{{i}}-telefone" required [(ngModel)]="telefone.Telefone1">
+      <button (click)="deletarTelefone(telefone.Id)" class="btn btn-danger">Apagar Telefone</button>
+    </div>
+    <div class="campo">
+
+      <button (click)="adicionarTelefone()" class="btn btn-default">Possui outro telefone</button>
+
+
+    </div>
+
+
+  </fieldset>
+  <br />
+  <br />
+
+  <button (click)="updateCadastro()" class="btn btn-success">Atualizar cadastro</button>
+  <br />
+  <br />
+  <button (click)="deleteCadastro()" class="btn btn-danger">Deletar cadastro</button>
+
+
+
+
+
+</form>

@@ -1,0 +1,49 @@
+<div>
+  <form>
+    <br />
+    <h1 id="titulo">Cadastro de cliente</h1>
+    <p id="subtitulo">Complete as informações adequadamente</p>
+    <br>
+  </form>
+</div>
+  
+
+  <form>
+    <fieldset class="grupo">
+      <div class="campo">
+        <label for="nome"><strong>Nome Completo</strong></label>
+        <input type="text" name="nome" id="nome" size="50" [(ngModel)]="nome" required>
+      </div>
+
+      <div class="campo">
+        <label for="dtnascimento"><strong>Data de Nascimento:</strong></label>
+        <input type="text" name="dtnascimento" id="dtnascimento" size="20" [(ngModel)]="dtnascimento" required>
+      </div>
+
+      <div class="campo">
+        <label for="cpf"><strong>Cpf:</strong></label>
+        <input type="text" name="CPF" id="CPF" required [(ngModel)]="cpf">
+      </div>
+
+      <div class="campo" *ngFor="let telefone of telefones; let i = index">
+        <label for="telefone"><strong>Telefone</strong></label>
+        <input type="text" name="{{i}}-telefone" id="{{i}}-telefone" required [(ngModel)]="telefone.telefone">
+      </div>
+      <div class="campo">
+
+        <button (click)="adicionarTelefone()" class="btn btn-default">Possui outro telefone</button>
+
+      </div>
+
+
+    </fieldset>
+
+    <button (click)="createCadastro()" class="btn btn-success">Criar cadastro</button>
+
+
+
+
+
+  </form>
+
+
